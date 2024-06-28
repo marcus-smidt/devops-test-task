@@ -69,7 +69,7 @@ This guide provides step-by-step instructions on how to deploy a Python applicat
     curl http://<public-ip-address>:8080/hello
     ```
 
-    - You should see the message "hello prozorro".
+- You should see the message "hello prozorro".
 
 ![Alt text](images/some_good_guy.png)
 
