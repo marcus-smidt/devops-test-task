@@ -79,6 +79,7 @@ To clean up the resources created by Terraform, run:
 
 ```bash
 terraform destroy
+```
 
 ## Areas for Improvement
 
