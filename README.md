@@ -68,7 +68,7 @@ This guide provides step-by-step instructions on how to deploy a Python applicat
     ```
 
     - You should see the message "hello prozorro".
-    
+
 ![Alt text](images/some_good_guy.png)
 
 ## Cleanup
@@ -77,3 +77,26 @@ To clean up the resources created by Terraform, run:
 
 ```bash
 terraform destroy
+
+## Areas for Improvement
+
+1.  **Terraform Modular Approach**:
+    
+    *   Refactoring Terraform configuration into reusable modules to improve organization and reusability.
+        
+2.  **Terraform Cloud for Remote Runs**:
+    
+    *   Using Terraform Cloud to manage Terraform state remotely and enable collaboration on infrastructure changes.
+        
+3.  **Ansible Roles**:
+    
+    *   Structuring Ansible playbook using roles to promote reusability and better organization.
+        
+4.  **Jinja2 Templates**:
+    
+    *   Using Jinja2 templates in Ansible to dynamically generate configuration files based on variables.
+        
+5.  **WSGI for Python Application**:
+    
+    *   Using a WSGI server like Gunicorn to serve a Python application for better performance and scalability.
+
