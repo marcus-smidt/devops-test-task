@@ -19,9 +19,11 @@ This guide provides step-by-step instructions on how to deploy a Python applicat
     ```bash
     terraform init
     ```
-3. plan
-
-3. **Apply Terraform Configuration**: Apply the configuration to create the infrastructure.
+3. **Review changes**: Run the following command to review changes to the infrastructure.
+     ```bash
+    terraform plan
+    ```
+4. **Apply Terraform Configuration**: Apply the configuration to create the infrastructure.
 
     ```bash
     terraform apply
@@ -29,7 +31,7 @@ This guide provides step-by-step instructions on how to deploy a Python applicat
 
     Confirm the action by typing `yes` when prompted.
 
-4. **Retrieve Public IP**: Note the public IP address of the EC2 instance from the Terraform output.
+5. **Retrieve Public IP**: Note the public IP address of the EC2 instance from the Terraform output.
 
 ## Step 2: Configure and Deploy the Application with Ansible
 
