@@ -1,0 +1,58 @@
+---
+- hosts: web
+  become: true
+  tasks:
+    - name: Update apt repository
+      dnf:
+        update_cache: yes
+
+    - name: Install dependencies
+      dnf:
+        name: 
+          - nginx
+          - python3-pip
+        state: present
+
+    - name: Install Flask
+      pip:
+        name: flask
+
+    - name: Copy Flask app home directory
+      copy:
+        src: app.py
+        dest: /home/ec2-user/app.py
+        mode: '0700'
+
+    - name: Create nginx conf directory
+      file:
+        path: /etc/nginx/sites-enabled
+        state: directory
+        mode: '0700'
+
+    - name: Configure Nginx
+      copy:
+        content: |
+          server {
+              listen 80;
+              listen [::]:80;
+              server_name 13.51.47.194;
+              location /hello {
+                  proxy_pass http://127.0.0.1:8080;
+                  proxy_set_header Host $host;
+                  proxy_set_header X-Real-IP $remote_addr;
+                  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                  proxy_set_header X-Forwarded-Proto $scheme;
+              }
+          }
+        dest: /etc/nginx/sites-enabled/13.51.47.194
+
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
+
+    - name: Run Flask app
+      shell: python3 /home/ec2-user/app.py &
+
+    
+
